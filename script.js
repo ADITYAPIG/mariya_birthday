@@ -27,7 +27,6 @@ const messages = [
 ];
 
 let jumpCount = 0;
-let sequenceRunning = false;
 const TOTAL_JUMPS = 6;
 
 function flashMessage(text){
@@ -45,13 +44,23 @@ function randomPosition(btnRect){
   return { x, y };
 }
 
-function jumpOnce(){
+noBtn.addEventListener('click', () => {
+  if (jumpCount >= TOTAL_JUMPS) return; // already vanished, ignore
+
   jumpCount++;
+
+  // on the very first click, switch from normal flow into free-floating fixed
+  // positioning, anchored to wherever it currently sits, so it doesn't jump/snap
+  if (jumpCount === 1){
+    const rect = noBtn.getBoundingClientRect();
+    noBtn.classList.add('jumping');
+    noBtn.style.transform = `translate(${rect.left}px, ${rect.top}px)`;
+    void noBtn.offsetWidth; // force reflow before the jump below animates
+  }
 
   const rect = noBtn.getBoundingClientRect();
   const { x, y } = randomPosition(rect);
   const scale = Math.max(1 - jumpCount * 0.15, 0.15);
-
   noBtn.style.transform = `translate(${x}px, ${y}px) scale(${scale})`;
 
   if (jumpCount <= messages.length){
@@ -59,7 +68,7 @@ function jumpOnce(){
   }
 
   if (jumpCount >= TOTAL_JUMPS){
-    // final jump: fade out and remove for good
+    // that was the last click: fade out and remove for good
     window.setTimeout(() => {
       noBtn.style.opacity = '0';
       window.setTimeout(() => {
@@ -67,24 +76,5 @@ function jumpOnce(){
         yesBtn.classList.add('pulse');
       }, 400);
     }, 250);
-    return;
   }
-
-  window.setTimeout(jumpOnce, 650);
-}
-
-noBtn.addEventListener('click', () => {
-  if (sequenceRunning) return;
-  sequenceRunning = true;
-
-  // capture the button's current on-screen position BEFORE switching to fixed jumping,
-  // then re-apply that exact spot as a transform so it doesn't visually snap
-  const rect = noBtn.getBoundingClientRect();
-  noBtn.classList.add('jumping');
-  noBtn.style.transform = `translate(${rect.left}px, ${rect.top}px)`;
-
-  // force reflow so the transform above applies before the first jump animates
-  void noBtn.offsetWidth;
-
-  jumpOnce();
 });
