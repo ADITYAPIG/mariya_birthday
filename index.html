@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Birthday Mariya</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Parisienne&family=Playfair+Display:ital,wght@0,600;0,700;0,900;1,600;1,700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<div class="ambient" aria-hidden="true"></div>
+
+<!-- SCREEN 1 : THE QUESTION -->
+<section id="screen-1" class="screen active">
+  <div class="q-wrap">
+    <p class="eyebrow">before we begin, one question</p>
+    <h1 class="big-question">Do You<br>Love Me?</h1>
+    <div class="btn-row" id="btnRow">
+      <button id="yesBtn" class="btn btn-yes">YES</button>
+      <button id="noBtn" class="btn btn-no">NO</button>
+    </div>
+  </div>
+  <div id="flashMsg" class="flash-msg" aria-live="polite"></div>
+</section>
+
+<!-- SCREEN 2 : THE REVEAL -->
+<section id="screen-2" class="screen">
+  <div class="photo-wrap">
+    <img src="images/her-photo.png" alt="Mariya" class="hero-photo">
+    <div class="photo-overlay"></div>
+    <div class="bday-text">
+      <span class="bday-line">Happy Birthday</span>
+      <span class="bday-name">Mariya</span>
+    </div>
+    <button id="nextBtn" class="btn btn-next">Our Memories &#8594;</button>
+  </div>
+</section>
+
+<!-- SCREEN 3 : OUR MEMORIES -->
+<section id="screen-3" class="screen">
+  <div class="memories-wrap">
+    <p class="eyebrow">a journey, together</p>
+    <h2 class="memories-title">Our Memories</h2>
+
+    <div class="timeline">
+
+      <article class="memory">
+        <span class="node">01</span>
+        <img class="memory-photo" src="images/memory-01.png" alt="Our first selfie">
+        <div class="memory-text">
+          <h3>Our First Selfie</h3>
+          <p>The very first photo of us together — where it all started.</p>
+        </div>
+      </article>
+
+      <article class="memory">
+        <span class="node">02</span>
+        <img class="memory-photo" src="images/memory-02.png" alt="Our first date">
+        <div class="memory-text">
+          <h3>Our First Date</h3>
+          <p>Hmlog movie date pe gaye the, "Bhoot Bangla 2" dekhne. She held my hand for the first time and I was very happy.</p>
+        </div>
+      </article>
+
+      <article class="memory">
+        <span class="node">03</span>
+        <img class="memory-photo" src="images/memory-03.png" alt="The surprise pickup">
+        <div class="memory-text">
+          <h3>The Surprise Pickup</h3>
+          <p>The second time she was coming to Kolkata after a long time and I was so excited to meet her that I booked a ticket to the station before hers, and went that very morning just to meet her and travel to Kolkata together.</p>
+        </div>
+      </article>
+
+      <article class="memory">
+        <span class="node">04</span>
+        <img class="memory-photo" src="images/memory-04.png" alt="An emotional night">
+        <div class="memory-text">
+          <h3>An Emotional Night</h3>
+          <p>Our third date was another movie date, this time "Chand Mera Dil." It was so memorable — for the first time a girl was comfortable enough with me to lean on my shoulder, hold my hand tight and fall asleep peacefully. I had tears in my eyes.</p>
+        </div>
+      </article>
+
+      <article class="memory">
+        <span class="node">05</span>
+        <img class="memory-photo" src="images/memory-05.png" alt="Our first couple photo">
+        <div class="memory-text">
+          <h3>Our First Couple Photo</h3>
+          <p>Just a random date, roaming around — and we got our first proper couple-looking photo 🤭</p>
+        </div>
+      </article>
+
+      <article class="memory">
+        <span class="node">06</span>
+        <img class="memory-photo" src="images/memory-06.png" alt="One month together">
+        <div class="memory-text">
+          <h3>One Month Together</h3>
+          <p>The day we completed our first month. The earrings she's wearing were gifted by me — we enjoyed the day a lot.</p>
+        </div>
+      </article>
+
+      <article class="memory">
+        <span class="node">07</span>
+        <img class="memory-photo" src="images/memory-07.png" alt="She treated me this time">
+        <div class="memory-text">
+          <h3>She Treated Me This Time</h3>
+          <p>Just a fun date — we enjoyed ourselves, and she paid for the meal this time 😁</p>
+        </div>
+      </article>
+
+      <article class="memory">
+        <span class="node">08</span>
+        <img class="memory-photo" src="images/memory-08.png" alt="When rain changed our plans">
+        <div class="memory-text">
+          <h3>When Rain Changed Our Plans</h3>
+          <p>We'd planned a sunset by the sea, but the rain ruined it and she was upset. So we improvised — a bike ride and a live jamming session at the mall instead. Both the ride and the concert were amazing.</p>
+        </div>
+      </article>
+
+      <article class="memory">
+        <span class="node">09</span>
+        <img class="memory-photo" src="images/memory-09.png" alt="Between exams, we made time">
+        <div class="memory-text">
+          <h3>Between Exams, We Made Time</h3>
+          <p>Our most recent date — we somehow found time between exams for a movie, "Dhamal 4." I wanted "Cocktail 2," but it's okay... she doesn't listen to me 😑</p>
+        </div>
+      </article>
+
+    </div>
+
+    <p class="footer-note">and this is only the beginning &#10084;</p>
+  </div>
+</section>
+
+<script src="js/script.js"></script>
+</body>
+</html>
