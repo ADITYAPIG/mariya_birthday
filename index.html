@@ -8,10 +8,55 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Parisienne&family=Playfair+Display:ital,wght@0,600;0,700;0,900;1,600;1,700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
+<style>
+  /* Romantic floating backdrop decorations */
+  .deco-layer {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    overflow: hidden;
+    z-index: 5;
+  }
+  .deco-item {
+    position: absolute;
+    top: -10%;
+    opacity: 0;
+    animation-name: deco-fall;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    will-change: transform, opacity;
+  }
+  @keyframes deco-fall {
+    0% {
+      transform: translateY(0) translateX(0) rotate(0deg);
+      opacity: 0;
+    }
+    8% { opacity: 1; }
+    92% { opacity: 1; }
+    100% {
+      transform: translateY(110vh) translateX(var(--drift, 20px)) rotate(360deg);
+      opacity: 0;
+    }
+  }
+  .deco-star {
+    animation-name: deco-twinkle;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: infinite;
+    position: absolute;
+  }
+  @keyframes deco-twinkle {
+    0%, 100% { opacity: 0.15; transform: scale(0.8); }
+    50% { opacity: 1; transform: scale(1.2); }
+  }
+</style>
 </head>
 <body>
 
 <div class="ambient" aria-hidden="true"></div>
+<div class="deco-layer" id="decoLayer" aria-hidden="true"></div>
 
 <!-- SCREEN 1 : THE QUESTION -->
 <section id="screen-1" class="screen active">
@@ -130,7 +175,7 @@
 
       <article class="memory">
         <span class="node">10</span>
-        <img class="memory-photo" src="memory-10.png" alt="Our sunset, finally">
+        <img class="memory-photo" src="memory-10.png" alt="Our sunset, finally" style="object-position: center 15%;">
         <div class="memory-text">
           <h3>Our Sunset, Finally</h3>
           <p>Finally we managed to complete our sunset plan but again this time without the sun..still it felt great with you Mottuuu.. we'll definitely go there again!!</p>
@@ -144,5 +189,73 @@
 </section>
 
 <script src="script.js"></script>
+<script>
+(function() {
+  const layer = document.getElementById('decoLayer');
+  if (!layer) return;
+
+  const fallingEmojis = ['💖', '💕', '💜', '💛', '✨', '⭐'];
+  const colors = ['#ffd166', '#ff6b9d', '#c9a7ff', '#7ee8c7', '#8ec9ff', '#ffffff'];
+
+  function randomBetween(min, max) {
+    return Math.random() * (max - min) + min;
+  }
+
+  // Falling hearts / stars / confetti
+  function spawnFallingItem() {
+    const el = document.createElement('div');
+    el.className = 'deco-item';
+    const isEmoji = Math.random() < 0.7;
+
+    if (isEmoji) {
+      el.textContent = fallingEmojis[Math.floor(Math.random() * fallingEmojis.length)];
+      el.style.fontSize = randomBetween(12, 22) + 'px';
+      el.style.filter = 'hue-rotate(' + randomBetween(0, 360) + 'deg)';
+    } else {
+      // simple confetti rectangle
+      el.style.width = randomBetween(6, 10) + 'px';
+      el.style.height = randomBetween(10, 16) + 'px';
+      el.style.background = colors[Math.floor(Math.random() * colors.length)];
+      el.style.borderRadius = '2px';
+    }
+
+    el.style.left = randomBetween(0, 100) + 'vw';
+    el.style.setProperty('--drift', randomBetween(-60, 60) + 'px');
+    const duration = randomBetween(7, 14);
+    el.style.animationDuration = duration + 's';
+    el.style.animationDelay = randomBetween(0, 4) + 's';
+
+    layer.appendChild(el);
+
+    setTimeout(() => el.remove(), (duration + 4) * 1000);
+  }
+
+  // Twinkling background stars (static positions, gentle pulse)
+  function spawnTwinkleStars(count) {
+    for (let i = 0; i < count; i++) {
+      const star = document.createElement('div');
+      star.className = 'deco-star';
+      star.textContent = '✦';
+      star.style.left = randomBetween(0, 100) + 'vw';
+      star.style.top = randomBetween(0, 100) + 'vh';
+      star.style.fontSize = randomBetween(8, 16) + 'px';
+      const starColors = ['#ffe9a8', '#c9a7ff', '#8ec9ff', '#ff9fc4'];
+      star.style.color = starColors[Math.floor(Math.random() * starColors.length)];
+      star.style.animationDuration = randomBetween(2, 5) + 's';
+      star.style.animationDelay = randomBetween(0, 3) + 's';
+      layer.appendChild(star);
+    }
+  }
+
+  spawnTwinkleStars(12);
+
+  // Continuously spawn falling decorations at a gentle, sparse pace
+  setInterval(spawnFallingItem, 1800);
+  // Seed just a couple immediately so it doesn't feel empty on load
+  for (let i = 0; i < 3; i++) {
+    setTimeout(spawnFallingItem, i * 400);
+  }
+})();
+</script>
 </body>
 </html>
