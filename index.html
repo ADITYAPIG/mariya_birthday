@@ -7,56 +7,11 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Parisienne&family=Playfair+Display:ital,wght@0,600;0,700;0,900;1,600;1,700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css">
-<style>
-  /* Romantic floating backdrop decorations */
-  .deco-layer {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    pointer-events: none;
-    overflow: hidden;
-    z-index: 5;
-  }
-  .deco-item {
-    position: absolute;
-    top: -10%;
-    opacity: 0;
-    animation-name: deco-fall;
-    animation-timing-function: linear;
-    animation-iteration-count: infinite;
-    will-change: transform, opacity;
-  }
-  @keyframes deco-fall {
-    0% {
-      transform: translateY(0) translateX(0) rotate(0deg);
-      opacity: 0;
-    }
-    8% { opacity: 1; }
-    92% { opacity: 1; }
-    100% {
-      transform: translateY(110vh) translateX(var(--drift, 20px)) rotate(360deg);
-      opacity: 0;
-    }
-  }
-  .deco-star {
-    animation-name: deco-twinkle;
-    animation-timing-function: ease-in-out;
-    animation-iteration-count: infinite;
-    position: absolute;
-  }
-  @keyframes deco-twinkle {
-    0%, 100% { opacity: 0.15; transform: scale(0.8); }
-    50% { opacity: 1; transform: scale(1.2); }
-  }
-</style>
+<link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
 <div class="ambient" aria-hidden="true"></div>
-<div class="deco-layer" id="decoLayer" aria-hidden="true"></div>
 
 <!-- SCREEN 1 : THE QUESTION -->
 <section id="screen-1" class="screen active">
@@ -74,11 +29,14 @@
 <!-- SCREEN 2 : THE REVEAL -->
 <section id="screen-2" class="screen">
   <div class="photo-wrap">
-    <img src="her-photo.png" alt="Mariya" class="hero-photo">
+    <img src="images/her-photo.png" alt="Mariya" class="hero-photo">
     <div class="photo-overlay"></div>
     <div class="bday-text">
-      <span class="bday-line">Happy Birthday</span>
-      <span class="bday-name">Mariya</span>
+      <span class="bday-line">Yeyyyyyyy!!! It's a Yes finally 🤭</span>
+    </div>
+    <div class="bday-bottom-text">
+      <span class="bday-headline">Happy Birthday Mariya</span>
+      <span class="bday-subline">I hope your all wishes come true enjoy your day to the fullest and keep loving me more..i love you mottuu 🥳❤️❤️</span>
     </div>
     <button id="nextBtn" class="btn btn-next">Our Memories &#8594;</button>
   </div>
@@ -94,91 +52,82 @@
 
       <article class="memory">
         <span class="node">01</span>
-        <img class="memory-photo" src="memory-01.png" alt="Our first selfie">
+        <img class="memory-photo" src="images/memory-01.png" alt="Our first selfie">
         <div class="memory-text">
           <h3>Our First Selfie</h3>
-          <p>The very first photo we took together — the frame where it all quietly began.</p>
+          <p>The very first photo of us together — where it all started.</p>
         </div>
       </article>
 
       <article class="memory">
         <span class="node">02</span>
-        <img class="memory-photo" src="memory-02.png" alt="Our first date">
+        <img class="memory-photo" src="images/memory-02.png" alt="Our first date">
         <div class="memory-text">
           <h3>Our First Date</h3>
-          <p>Remember our first movie date, "Bhoot Bangla 2." Somewhere in the darkness of that theatre, we held each other's hands for the very first time—and until that moment, I had never felt happier. It's a memory I'll always cherish, because that simple moment meant the world to me.</p>
+          <p>Hmlog movie date pe gaye the, "Bhoot Bangla 2" dekhne. She held my hand for the first time and I was very happy.</p>
         </div>
       </article>
 
       <article class="memory">
         <span class="node">03</span>
-        <img class="memory-photo" src="memory-03.png" alt="The surprise pickup">
+        <img class="memory-photo" src="images/memory-03.png" alt="The surprise pickup">
         <div class="memory-text">
           <h3>The Surprise Meetup</h3>
-          <p>Remember I came to meet you at your next station. Tbh I didn't expected myself to do that for anyone 😅 but yes you are special to me and that makes me do these things love💕</p>
+          <p>The second time she was coming to Kolkata after a long time and I was so excited to meet her that I booked a ticket to the station before hers, and went that very morning just to meet her and travel to Kolkata together.</p>
         </div>
       </article>
 
       <article class="memory">
         <span class="node">04</span>
-        <img class="memory-photo" src="memory-04.png" alt="An emotional night">
+        <img class="memory-photo" src="images/memory-04.png" alt="An emotional night">
         <div class="memory-text">
-          <h3>The New Curve</h3>
-          <p>Our third date, another movie — this time "Chand Mera Dil." Somewhere through the film when you got bored you leaned your head on my shoulders, held my hand tight. It was the first time anyone had felt so comfortable around me and it quietly brought me to tears 🥺</p>
+          <h3>A New Curve</h3>
+          <p>Our third date was another movie date, this time "Chand Mera Dil." It was so memorable — for the first time a girl was comfortable enough with me to lean on my shoulder, hold my hand tight and fall asleep peacefully. I had tears in my eyes.</p>
         </div>
       </article>
 
       <article class="memory">
         <span class="node">05</span>
-        <img class="memory-photo" src="memory-05.png" alt="Our first couple photo">
+        <img class="memory-photo" src="images/memory-05.png" alt="Our first couple photo">
         <div class="memory-text">
           <h3>Our First Couple Photo</h3>
-          <p>Just an ordinary day of wandering around together — and somewhere in it, we ended up with our first photo that finally looked like a real couple 🤭</p>
+          <p>Just a random date, roaming around — and we got our first proper couple-looking photo 🤭</p>
         </div>
       </article>
 
       <article class="memory">
         <span class="node">06</span>
-        <img class="memory-photo" src="memory-06.png" alt="One month together">
+        <img class="memory-photo" src="images/memory-06.png" alt="One month together">
         <div class="memory-text">
           <h3>One Month Together</h3>
-          <p>Huh..finally the day we completed our first month Remember the earrings you are wearing,I hope you liked it 👀</p>
+          <p>The day we completed our first month. The earrings she's wearing were gifted by me — we enjoyed the day a lot.</p>
         </div>
       </article>
 
       <article class="memory">
         <span class="node">07</span>
-        <img class="memory-photo" src="memory-07.png" alt="She treated me this time">
+        <img class="memory-photo" src="images/memory-07.png" alt="She treated me this time">
         <div class="memory-text">
           <h3>She Treated Me This Time</h3>
-          <p>Remember Mani Square? A light, fun date full of laughter — and this time, you payed for me.. thankyou so much 😁</p>
+          <p>Just a fun date — we enjoyed ourselves, and she paid for the meal this time 😁</p>
         </div>
       </article>
 
       <article class="memory">
         <span class="node">08</span>
-        <img class="memory-photo" src="memory-08.png" alt="When rain changed our plans">
+        <img class="memory-photo" src="images/memory-08.png" alt="When rain changed our plans">
         <div class="memory-text">
           <h3>When Rain Changed Our Plans</h3>
-          <p>This time we planned a quiet sunset by the sea, but the rain had other ideas, and you were upset. So we got a bike ride followed by a live jamming session at the mall. Somehow, the backup plan turned out to be just as amazing Right? 🤭</p>
+          <p>We'd planned a sunset by the sea, but the rain ruined it and she was upset. So we improvised — a bike ride and a live jamming session at the mall instead. Both the ride and the concert were amazing.</p>
         </div>
       </article>
 
       <article class="memory">
         <span class="node">09</span>
-        <img class="memory-photo" src="memory-09.png" alt="Between exams, we made time">
+        <img class="memory-photo" src="images/memory-09.png" alt="Between exams, we made time">
         <div class="memory-text">
           <h3>Between Exams, We Made Time</h3>
-          <p>This is our most recent date, squeezed in somewhere between exam schedules — a movie, "Welcome to the Jungle." I was requesting for "Cocktail 2" instead, but as always, you have the final say 😑</p>
-        </div>
-      </article>
-
-      <article class="memory">
-        <span class="node">10</span>
-        <img class="memory-photo" src="memory-10.png" alt="Our sunset, finally" style="object-position: center 15%;">
-        <div class="memory-text">
-          <h3>Our Sunset, Finally</h3>
-          <p>Finally we managed to complete our sunset plan but again this time without the sun..still it felt great with you Mottuuu.. we'll definitely go there again!!</p>
+          <p>Our most recent date — we somehow found time between exams for a movie, "Welcome to the Jungle" I wanted "Cocktail 2," but it's okay... she doesn't listen to me 😑</p>
         </div>
       </article>
 
@@ -188,74 +137,6 @@
   </div>
 </section>
 
-<script src="script.js"></script>
-<script>
-(function() {
-  const layer = document.getElementById('decoLayer');
-  if (!layer) return;
-
-  const fallingEmojis = ['💖', '💕', '💜', '💛', '✨', '⭐'];
-  const colors = ['#ffd166', '#ff6b9d', '#c9a7ff', '#7ee8c7', '#8ec9ff', '#ffffff'];
-
-  function randomBetween(min, max) {
-    return Math.random() * (max - min) + min;
-  }
-
-  // Falling hearts / stars / confetti
-  function spawnFallingItem() {
-    const el = document.createElement('div');
-    el.className = 'deco-item';
-    const isEmoji = Math.random() < 0.7;
-
-    if (isEmoji) {
-      el.textContent = fallingEmojis[Math.floor(Math.random() * fallingEmojis.length)];
-      el.style.fontSize = randomBetween(12, 22) + 'px';
-      el.style.filter = 'hue-rotate(' + randomBetween(0, 360) + 'deg)';
-    } else {
-      // simple confetti rectangle
-      el.style.width = randomBetween(6, 10) + 'px';
-      el.style.height = randomBetween(10, 16) + 'px';
-      el.style.background = colors[Math.floor(Math.random() * colors.length)];
-      el.style.borderRadius = '2px';
-    }
-
-    el.style.left = randomBetween(0, 100) + 'vw';
-    el.style.setProperty('--drift', randomBetween(-60, 60) + 'px');
-    const duration = randomBetween(7, 14);
-    el.style.animationDuration = duration + 's';
-    el.style.animationDelay = randomBetween(0, 4) + 's';
-
-    layer.appendChild(el);
-
-    setTimeout(() => el.remove(), (duration + 4) * 1000);
-  }
-
-  // Twinkling background stars (static positions, gentle pulse)
-  function spawnTwinkleStars(count) {
-    for (let i = 0; i < count; i++) {
-      const star = document.createElement('div');
-      star.className = 'deco-star';
-      star.textContent = '✦';
-      star.style.left = randomBetween(0, 100) + 'vw';
-      star.style.top = randomBetween(0, 100) + 'vh';
-      star.style.fontSize = randomBetween(8, 16) + 'px';
-      const starColors = ['#ffe9a8', '#c9a7ff', '#8ec9ff', '#ff9fc4'];
-      star.style.color = starColors[Math.floor(Math.random() * starColors.length)];
-      star.style.animationDuration = randomBetween(2, 5) + 's';
-      star.style.animationDelay = randomBetween(0, 3) + 's';
-      layer.appendChild(star);
-    }
-  }
-
-  spawnTwinkleStars(12);
-
-  // Continuously spawn falling decorations at a gentle, sparse pace
-  setInterval(spawnFallingItem, 1800);
-  // Seed just a couple immediately so it doesn't feel empty on load
-  for (let i = 0; i < 3; i++) {
-    setTimeout(spawnFallingItem, i * 400);
-  }
-})();
-</script>
+<script src="js/script.js"></script>
 </body>
 </html>
